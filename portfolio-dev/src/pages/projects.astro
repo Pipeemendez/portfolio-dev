@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} — Projects`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Projects</h1>
+      <p>Here are some sample projects. Replace these with your real projects.</p>
+
+      <section class="projects-list">
+        <article class="project">
+          <h2><a href="#">Sample Project One</a></h2>
+          <p>A short description of the first project. Add links, images, and details here.</p>
+        </article>
+
+        <article class="project">
+          <h2><a href="#">Sample Project Two</a></h2>
+          <p>A short description of the second project. Replace with your portfolio items.</p>
+        </article>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
