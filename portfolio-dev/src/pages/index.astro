@@ -3,6 +3,34 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+	{
+		title: 'Interfaz Web de Monitoreo de Microservicios – Virtual Fit',
+		description: 'Desarrollo de una aplicación web para control y monitoreo en tiempo real de los microservicios del sistema Virtual Fit bajo arquitectura SOA mediante un BUS alojado en Docker..',
+		tech: ['Python', 'Node.js', 'Express.js', 'Socket.IO', 'Docker', 'MongoDB', 'WebSockets'],
+		repoUrl: 'https://github.com/Pipeemendez/ASAI-VirtualFit'
+	},
+	{
+		title: 'Front-end y Back-end – Olivos Sport',
+		description: 'Desarrollo de una aplicación web interna para control de asistencia de profesores, trabajando con la metodología Scrum.',
+		tech: ['Node.js', 'Express.js', 'HTML5', 'CSS3', 'JavaScript', 'MongoDB'],
+		repoUrl: 'https://github.com/Pipeemendez/OlivoSport-web'
+	},
+	{
+		title: 'Front-end – Ticketera',
+		description: 'Desarrollo de una aplicación web para la venta de tickets con visualización de diferentes eventos.',
+		tech: ['React', 'HTML5', 'CSS3', 'JavaScript'],
+		repoUrl: 'https://github.com/Pipeemendez/ticketera'
+	},
+	{
+		title: 'Data Science – Clasificación de Notebooks por rango de precio',
+		description: 'Modelo de Machine Learning para clasificar notebooks en rangos de precio utilizando el framework OSEMN. Extracción por web scraping, limpieza, EDA (SMOTE), selección de variables y modelado (Regresión Logística).',
+		tech: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'BeautifulSoup', 'Selenium', 'Jupyter'],
+		repoUrl: 'https://github.com/Pipeemendez/Data-Science-Project'
+	}
+];
 ---
 
 <!doctype html>
@@ -51,7 +79,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<section id="projects" class="projects-preview">
 				<h2>Proyectos destacados</h2>
-				<p>Una selección de proyectos. Añade títulos, descripciones, tecnologías y enlaces a repositorios o demos.</p>
+				<p>Una selección de proyectos. Haz clic en "Ver en GitHub" para ver el repositorio.</p>
+
+				<div class="projects-grid">
+					{projects.map(project => (
+						<ProjectCard title={project.title} description={project.description} tech={project.tech} repoUrl={project.repoUrl} />
+					))}
+				</div>
 			</section>
 
 			<section id="contact" class="contact">
@@ -71,6 +105,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		.btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent) }
 		main { padding-top: 80px }
 		main section { max-width: 900px; margin: 2rem auto; padding: 0 1rem }
+		.projects-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1rem }
+		/* make cards wider and improve text flow: use minmax so each card is at least 360px */
+		.projects-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
 		/* ensure anchor targets are visible below fixed headers */
 		section { scroll-margin-top: 80px }
 	</style>
