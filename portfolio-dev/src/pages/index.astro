@@ -104,10 +104,12 @@ const projects = [
 		.btn { background: var(--accent); color: white; padding: .6rem .9rem; border-radius:6px; text-decoration:none }
 		.btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent) }
 		main { padding-top: 80px }
-		main section { max-width: 900px; margin: 2rem auto; padding: 0 1rem }
-		.projects-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1rem }
-		/* make cards wider and improve text flow: use minmax so each card is at least 360px */
-		.projects-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+				main section { max-width: 900px; margin: 2rem auto; padding: 0 1rem }
+				/* Projects grid: show 2 columns on wide screens, 1 on small screens, with gap between cards */
+				.projects-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem }
+				@media (max-width: 760px) {
+					.projects-grid { grid-template-columns: 1fr }
+				}
 		/* ensure anchor targets are visible below fixed headers */
 		section { scroll-margin-top: 80px }
 		/* Justify 'Sobre mí' text for better readability */
