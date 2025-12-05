@@ -47,6 +47,8 @@ header {
 h2 {
   margin: 0;
   font-size: 1em;
+  position: absolute; /* keep title at the left while links stay centered */
+  left: 1rem;
 }
 
 h2 a,
@@ -57,7 +59,8 @@ h2 a.active {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* center nav links horizontally */
+  position: relative; /* allow absolute positioning of logo and social links */
   height: 64px;
   gap: 1rem;
 }
@@ -86,10 +89,16 @@ nav a.active {
   display: flex;
   gap: .5rem;
   align-items: center;
+  position: absolute; /* keep social icons at the right */
+  right: 1rem;
 }
 @media (max-width: 720px) {
   .social-links {
     display: none;
+    position: static;
+  }
+  h2 {
+    position: static;
   }
   nav {
     gap: 0.5rem;
