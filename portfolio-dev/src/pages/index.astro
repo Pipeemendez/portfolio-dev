@@ -13,44 +13,56 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
+			<section id="home" class="hero">
 				<h1>{SITE_TITLE}</h1>
 				<p class="role">Desarrollador Web / Ingeniero de Software</p>
-				<p class="summary">Breve resumen profesional. Copia aquí la introducción de tu CV o dime si quieres que la extraiga del PDF.</p>
+				<p class="summary">Breve resumen profesional.</p>
 				<div class="hero-links">
-					<a class="btn" href="/projects">Ver proyectos</a>
+					<a class="btn" href="#projects">Ver proyectos</a>
 					<a class="btn secondary" href="/CV_Felipe_Mendez.pdf" target="_blank">Descargar CV (PDF)</a>
 				</div>
 			</section>
 
-			<section class="about">
+			<section id="about" class="about">
 				<h2>Sobre mí</h2>
-				<p>Incluye una introducción más amplia: años de experiencia, tecnologías principales, y objetivos profesionales. Si quieres, puedo rellenar esta sección con el contenido de tu CV.</p>
+				<p>Estudiante de ´ultimo a˜no de Ingenier´ıa Civil en Inform´atica y Telecomunicaciones con inter´es en desarrollo de software, aplicaciones web y ciencia de datos. Apasionado por comprender el funcionamiento de los sistemas, sus arquitecturas y desarrollar soluciones m´as seguras y escalables. Actualmente, explorando tecnolog´ıas para el desarrollo de aplicaciones y con especial inter´es en el sector de retail. Tambi´en participo en charlas y actividades relacionadas con el ´area para conocer nuevas tecnolog´ıas. Comprometido con generar un buen ambiente de trabajo, el aprendizaje continuo y el trabajo colaborativo.</p>
 			</section>
 
-			<section class="skills">
+			<section id="skills" class="skills">
 				<h2>Habilidades</h2>
 				<ul>
-					<li>JavaScript / TypeScript</li>
-					<li>Node.js, Astro</li>
-					<li>React / Vue</li>
-					<li>APIs, Bases de datos</li>
+					<li>JavaScript </li>
+					<li> Express.js </li>
+					<li>Node.js </li>
+					<li>React </li>
+					<li>APIs </li>
+					<li> PostgreSQL, SQL-Server, MongoDB </li>
 				</ul>
 			</section>
 
-			<section class="projects-preview">
+			<section id="projects" class="projects-preview">
 				<h2>Proyectos destacados</h2>
-				<p>Una selección de proyectos. Pulsa <a href="/projects">aquí</a> para ver todos.</p>
+				<p>Una selección de proyectos. Añade títulos, descripciones, tecnologías y enlaces a repositorios o demos.</p>
+			</section>
+
+			<section id="contact" class="contact">
+				<h2>Contacto</h2>
+				<p>Puedes contactarme por correo: <a href="mailto:pipemendezri@gmail.com">pipemendezri@gmail.com</a></p>
+				<p>O visitar mi <a href="https://github.com/Pipeemendez" target="_blank">GitHub</a> y <a href="https://www.linkedin.com/in/felipe-mendezr" target="_blank">LinkedIn</a>.</p>
 			</section>
 		</main>
 		<Footer />
 	</body>
 	<style>
+		html { scroll-behavior: smooth }
 		.hero { padding: 3rem 1rem; text-align: center }
 		.role { font-weight: 600; color: var(--accent) }
 		.hero-links { margin-top: 1rem; display:flex; gap:1rem; justify-content:center }
 		.btn { background: var(--accent); color: white; padding: .6rem .9rem; border-radius:6px; text-decoration:none }
 		.btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent) }
+		main { padding-top: 80px }
 		main section { max-width: 900px; margin: 2rem auto; padding: 0 1rem }
+		/* ensure anchor targets are visible below fixed headers */
+		section { scroll-margin-top: 80px }
 	</style>
 </html>
