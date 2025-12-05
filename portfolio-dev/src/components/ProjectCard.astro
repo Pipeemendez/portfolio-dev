@@ -26,14 +26,17 @@ const techList = Array.isArray(tech) ? tech : String(tech).split(/,\s*/).filter(
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
   padding: 1rem;
-  background: white;
-  box-shadow: 0 4px 14px rgba(11,22,36,0.04);
+  /* subtle frosted background so the card reads on dark blue */
+  background: rgba(255,255,255,0.06);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.28);
 }
 .project-card-body { margin-bottom: 1rem }
 .project-title { margin: 0 0 0.5rem 0; font-size: 1.05rem }
-.project-desc { margin: 0 0 0.75rem 0; color: rgb(var(--gray)); }
+.project-desc { margin: 0 0 0.75rem 0; color: rgba(255,255,255,0.92); }
 .project-tech { display:flex; flex-wrap:wrap; gap:0.5rem; list-style:none; padding:0; margin:0 }
-.project-tech li { font-size: .85rem; padding: .2rem .5rem; background: rgba(0,0,0,0.03); border-radius: 6px }
+.project-tech li { font-size: .85rem; padding: .2rem .5rem; background: rgba(255,255,255,0.04); color: #fff; border-radius: 6px }
 .project-card-footer { display:flex; justify-content:center; margin-top: .6rem }
 .btn.repo-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: .55rem .9rem; border-radius: 8px; text-decoration:none; min-width: 140px; text-align:center }
 .btn.repo-btn:hover { background: var(--accent); color: white }
