@@ -1,5 +1,4 @@
 ---
-// Props: title, description, tech (array or string), repoUrl
 const { title, description, tech = [], repoUrl = '#' } = Astro.props;
 const techList = Array.isArray(tech) ? tech : String(tech).split(/,\s*/).filter(Boolean);
 ---
@@ -26,7 +25,6 @@ const techList = Array.isArray(tech) ? tech : String(tech).split(/,\s*/).filter(
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
   padding: 1rem;
-  /* subtle frosted background so the card reads on dark blue */
   background: rgba(255,255,255,0.06);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
