@@ -1,0 +1,43 @@
+---
+// Props: title, description, tech (array or string), repoUrl
+const { title, description, tech = [], repoUrl = '#' } = Astro.props;
+const techList = Array.isArray(tech) ? tech : String(tech).split(/,\s*/).filter(Boolean);
+---
+<article class="project-card">
+  <div class="project-card-body">
+    <h3 class="project-title">{title}</h3>
+    <p class="project-desc">{description}</p>
+    {techList.length > 0 && (
+      <ul class="project-tech">
+        {techList.map(t => <li>{t}</li>)}
+      </ul>
+    )}
+  </div>
+  <div class="project-card-footer">
+    <a class="btn repo-btn" href={repoUrl} target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+  </div>
+</article>
+
+<style>
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 4px 14px rgba(11,22,36,0.04);
+}
+.project-card-body { margin-bottom: 1rem }
+.project-title { margin: 0 0 0.5rem 0; font-size: 1.05rem }
+.project-desc { margin: 0 0 0.75rem 0; color: rgb(var(--gray)); }
+.project-tech { display:flex; flex-wrap:wrap; gap:0.5rem; list-style:none; padding:0; margin:0 }
+.project-tech li { font-size: .85rem; padding: .2rem .5rem; background: rgba(0,0,0,0.03); border-radius: 6px }
+.project-card-footer { display:flex; justify-content:center; margin-top: .6rem }
+.btn.repo-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: .55rem .9rem; border-radius: 8px; text-decoration:none; min-width: 140px; text-align:center }
+.btn.repo-btn:hover { background: var(--accent); color: white }
+@media (min-width: 720px) {
+  .project-card { padding: 1.2rem }
+}
+</style>
