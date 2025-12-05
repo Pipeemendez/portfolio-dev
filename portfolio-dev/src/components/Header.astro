@@ -5,11 +5,13 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="#home">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="#home">Inicio</HeaderLink>
+			<HeaderLink href="#about">Sobre mí</HeaderLink>
+			<HeaderLink href="#skills">Habilidades</HeaderLink>
+			<HeaderLink href="#projects">Proyectos</HeaderLink>
+			<HeaderLink href="#contact">Contacto</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -40,46 +42,75 @@ import HeaderLink from './HeaderLink.astro';
 				>
 			</a>
 		</div>
-	</nav>
+ 	</nav>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+<style>
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: block;
+  margin: 0;
+  padding: 0 1em;
+  background: rgba(255,255,255,0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+h2 a,
+h2 a.active {
+  text-decoration: none;
+  color: var(--black);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 1rem;
+}
+nav .internal-links {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+nav a {
+  padding: .75em .6em;
+  color: var(--black);
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color .12s ease, background-color .12s ease, border-bottom-color .12s ease;
+}
+nav a:hover {
+  background: rgba(0,0,0,0.04);
+}
+nav a.active {
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+.social-links,
+.social-links a {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+@media (max-width: 720px) {
+  .social-links {
+    display: none;
+  }
+  nav {
+    gap: 0.5rem;
+  }
+}
 </style>
