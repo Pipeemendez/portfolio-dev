@@ -97,22 +97,69 @@ const projects = [
 		<Footer />
 	</body>
 	<style>
-		html { scroll-behavior: smooth }
-		.hero { padding: 3rem 1rem; text-align: center }
-		.role { font-weight: 600; color: var(--accent) }
-		.hero-links { margin-top: 1rem; display:flex; gap:1rem; justify-content:center }
-		.btn { background: var(--accent); color: white; padding: .6rem .9rem; border-radius:6px; text-decoration:none }
-		.btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent) }
-		main { padding-top: 80px }
-				main section { max-width: 900px; margin: 2rem auto; padding: 0 1rem }
-				/* Projects grid: show 2 columns on wide screens, 1 on small screens, with gap between cards */
-				.projects-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem }
-				@media (max-width: 760px) {
-					.projects-grid { grid-template-columns: 1fr }
-				}
-		/* ensure anchor targets are visible below fixed headers */
-		section { scroll-margin-top: 80px }
-		/* Justify 'Sobre mí' text for better readability */
-		.about p { text-align: justify; text-justify: inter-word; line-height: 1.7 }
+		html { 
+			scroll-behavior: smooth 
+		}
+		.hero { 
+			padding: 3rem 1rem; 
+			text-align: center 
+		}
+		.role { 
+			font-weight: 600; 
+			color: var(--accent) 
+		}
+		.hero-links { 
+			margin-top: 1rem; 
+			display:flex; 
+			gap:1rem; 
+			justify-content:center 
+		}
+		.btn { 
+			background: var(--accent); 
+			color: white; 
+			padding: .6rem .9rem; 
+			border-radius:6px; 
+			text-decoration:none 
+		}
+		.btn.secondary { 
+			background: transparent; 
+			border: 1px solid var(--accent); 
+			color: var(--accent) 
+		}
+		main { 
+			padding-top: 80px 
+		}
+		main section {
+			max-width: 900px; 
+			margin: 2rem auto; 
+			padding: 0 1rem 
+		}
+		.projects-grid {
+			display: grid;
+			gap: 1.5rem; 
+			grid-template-columns: repeat(2, minmax(0, 1fr)); 
+			margin-top: 1rem 
+		}
+		@media (max-width: 760px) {
+			.projects-grid { grid-template-columns: 1fr }
+
+			main {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+				align-items: center;
+				justify-content: center;
+				width: auto;
+				margin: 0;
+			}
+		}
+		section { 
+			scroll-margin-top: 80px 
+		}
+		.about p {
+			text-align: justify; 
+			text-justify: inter-word; 
+			line-height: 1.7 
+		}
 	</style>
 </html>
